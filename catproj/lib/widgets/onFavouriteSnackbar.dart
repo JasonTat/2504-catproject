@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:catproj/main.dart';
 
 class OnFavouriteSnackbar {
-  String text;
-  OnFavouriteSnackbar({required this.text});
+
 
   void show() {
     print(scaffoldMessengerKey.currentState);
@@ -14,24 +13,23 @@ class OnFavouriteSnackbar {
   }
 
   SnackBar createSnackBar(){
-  return SnackBar(
-    duration: const Duration(seconds: 10),
+  return const SnackBar(
+    duration:  Duration(seconds: 4),
     behavior: SnackBarBehavior.floating,
-    content: Row(
+    content:  Row(
       children: [
-        const Icon(Icons.accessibility_new_rounded),
-        const SizedBox(
+        SizedBox(
           width: 10,
         ),
-        Text(text),
+        Text('Favourited!'),
       ],
     ),
-    action: SnackBarAction(
-        label: 'Click',
-        onPressed: () {
-          print('hey you clicked on the snackbar Action');
-        },
-      ),
+    // action: SnackBarAction(
+    //     label: 'undo',
+    //     onPressed: () {
+    //       print('fact favourited');
+    //     },
+    //   ),
   );
 }
 }

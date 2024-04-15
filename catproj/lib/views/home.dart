@@ -8,6 +8,7 @@ import 'package:catproj/services/db-service.dart';
 import 'package:path/path.dart' as pathPackage;
 import 'package:sqflite/sqflite.dart' as sqflitePackage;
 
+
 class HomeView extends StatefulWidget {
   @override
   HomeViewState createState() => HomeViewState();
@@ -20,7 +21,6 @@ class HomeViewState extends State<HomeView> {
   List<Map<String, dynamic>> listOfFactsToAdd = [];
   String catFact = "";
   String catFactToAddToDb = "";
-
 
 
 
@@ -89,13 +89,22 @@ class HomeViewState extends State<HomeView> {
                   await databaseService.insertFact({
                     'catFacts': catFact
                   });
-                  await databaseService.printAllRecordsInDbToConsole();                  
+                  await databaseService.printAllRecordsInDbToConsole();   
+
+
+                  // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  OnFavouriteSnackbar().show();                  
+
                 },
               ),  
             ), 
 
           ],
+          
+
+          
     );
+    
   }
 
   void updateFact(dynamic data){
@@ -108,6 +117,8 @@ class HomeViewState extends State<HomeView> {
     var data = await restAPIService.getRestfulAPIData();
     updateFact(data);
   }
+
+
 
 
 
