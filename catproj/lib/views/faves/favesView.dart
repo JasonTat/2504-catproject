@@ -61,15 +61,16 @@ class FavesState extends State<Faves> {
               setState((){});
             }
           ),
-          ElevatedButton(
-            child: const Text('create initial record'),
-            onPressed: () {
-              createInitRecord();
-              setState(() {
+          //for testing
+          // ElevatedButton(
+          //   child: const Text('create initial record'),
+          //   onPressed: () {
+          //     createInitRecord();
+          //     setState(() {
                 
-              });
-            }
-          ),
+          //     });
+          //   }
+          // ),
           Expanded(
             child: ListView.builder(
               itemCount: faveListOfFacts.length,
